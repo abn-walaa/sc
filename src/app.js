@@ -4,7 +4,7 @@ require('./db/db')
 let db2 = require('./db/model/db')
 
 async function start(name) {
-    let browser = await puppeteer.launch({ headless: false });
+    let browser = await puppeteer.launch({ headless: true });
     let page = await browser.newPage()
 
     await page.goto('https://trade.metatrader5.com/terminal', { waitUntil: ['domcontentloaded', 'load', 'networkidle0', 'networkidle2'] })
@@ -36,7 +36,6 @@ async function start(name) {
         }, 2000)
     })
     await page.evaluate(() => {
-
         document.querySelector('[title="Add Indicator (Ctrl + I)"]').click();
     })
     await new Promise(async (re) => {
@@ -87,6 +86,12 @@ async function start(name) {
         document.querySelector('[title="1 Minute"]').click();
         document.querySelector('.drop-view.svelte-kisuhz ').firstChild.className = "";
     })
+    await new Promise(async (re) => {
+        setTimeout((e) => {
+            re('hi')
+        }, 1000)
+    })
+
     while (true) {
 
         let k = await page.evaluate(async () => {
@@ -126,7 +131,7 @@ async function start(name) {
         await new Promise(async (re) => {
             await setTimeout((e) => {
                 re('hi')
-            }, 1000)
+            }, 100)
         })
     }
 
