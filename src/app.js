@@ -41,7 +41,7 @@ async function start(name) {
     await new Promise(async (re) => {
         await setTimeout((e) => {
             re('hi')
-        }, 1000)
+        }, 2000)
     })
     await page.evaluate(() => {
 
@@ -50,7 +50,7 @@ async function start(name) {
     await new Promise(async (re) => {
         await setTimeout((e) => {
             re('hi')
-        }, 1000)
+        }, 2000)
     })
     await page.evaluate(() => {
 
@@ -59,7 +59,7 @@ async function start(name) {
     await new Promise(async (re) => {
         await setTimeout((e) => {
             re('hi')
-        }, 1000)
+        }, 2000)
     })
     await page.evaluate(() => {
 
@@ -68,7 +68,7 @@ async function start(name) {
     await new Promise(async (re) => {
         await setTimeout((e) => {
             re('hi')
-        }, 1000)
+        }, 2000)
     })
     await page.evaluate(() => {
 
@@ -78,7 +78,7 @@ async function start(name) {
     await new Promise(async (re) => {
         await setTimeout((e) => {
             re('hi')
-        }, 1000)
+        }, 2000)
     })
     await page.evaluate(() => {
 
