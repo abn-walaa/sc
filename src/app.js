@@ -35,107 +35,107 @@ async function start(name) {
             re('hi')
         }, 2000)
     })
-    await page.evaluate(() => {
-        document.querySelector('[title="Add Indicator (Ctrl + I)"]').click();
-        // })
-        // await new Promise(async (re) => {
-        //     await setTimeout((e) => {
-        //         re('hi')
-        //     }, 1000)
-        // })
-        // await page.evaluate(() => {
+    // await page.evaluate(() => {
+    //     document.querySelector('[title="Add Indicator (Ctrl + I)"]').click();
+    // })
+    // await new Promise(async (re) => {
+    //     await setTimeout((e) => {
+    //         re('hi')
+    //     }, 1000)
+    // })
+    // await page.evaluate(() => {
 
-        //     document.querySelector('.buttons.svelte-1o7hjya').querySelector(':nth-child(4)').click();
-        // })
-        // await new Promise(async (re) => {
-        //     await setTimeout((e) => {
-        //         re('hi')
-        //     }, 1000)
-        // })
-        // await page.evaluate(() => {
+    //     document.querySelector('.buttons.svelte-1o7hjya').querySelector(':nth-child(4)').click();
+    // })
+    // await new Promise(async (re) => {
+    //     await setTimeout((e) => {
+    //         re('hi')
+    //     }, 1000)
+    // })
+    // await page.evaluate(() => {
 
-        //     document.querySelectorAll('.item.svelte-1sfxbbv')[3].click()
-        // })
-        // await new Promise(async (re) => {
-        //     await setTimeout((e) => {
-        //         re('hi')
-        //     }, 1000)
-        // })
-        // await page.evaluate(() => {
+    //     document.querySelectorAll('.item.svelte-1sfxbbv')[3].click()
+    // })
+    // await new Promise(async (re) => {
+    //     await setTimeout((e) => {
+    //         re('hi')
+    //     }, 1000)
+    // })
+    // await page.evaluate(() => {
 
-        //     document.querySelector('.button.svelte-aawtpb.active').click()
-        // })
-        // await new Promise(async (re) => {
-        //     await setTimeout((e) => {
-        //         re('hi')
-        //     }, 1000)
-        // })
-        // await page.evaluate(() => {
+    //     document.querySelector('.button.svelte-aawtpb.active').click()
+    // })
+    // await new Promise(async (re) => {
+    //     await setTimeout((e) => {
+    //         re('hi')
+    //     }, 1000)
+    // })
+    // await page.evaluate(() => {
 
-        //     document.querySelector('.drop-view.svelte-kisuhz ').firstChild.className = "open";
+    //     document.querySelector('.drop-view.svelte-kisuhz ').firstChild.className = "open";
 
-        // })
-        // await new Promise(async (re) => {
-        //     await setTimeout((e) => {
-        //         re('hi')
-        //     }, 1000)
-        // })
-        // await page.evaluate(() => {
-
-
-        //     document.querySelector('[title="1 Minute"]').click();
-        //     document.querySelector('.drop-view.svelte-kisuhz ').firstChild.className = "";
-        // })
-        await new Promise(async (re) => {
-            setTimeout((e) => {
-                re('hi')
-            }, 5000)
-        })
-
-        while (true) {
-
-            let k = await page.evaluate(async () => {
+    // })
+    // await new Promise(async (re) => {
+    //     await setTimeout((e) => {
+    //         re('hi')
+    //     }, 1000)
+    // })
+    // await page.evaluate(() => {
 
 
-                try {
-                    let data = document.querySelectorAll('.tr.svelte-1c4nhxj .item ');
-                    let pair, ask, bid, chg, vo;
-                    Array.from(data).forEach(async e => {
-                        let ar = e.children;
-                        pair = ar[0].querySelector('.text').textContent
-                        bid = Number(ar[1].querySelector('.value').textContent)
-                        ask = Number(ar[2].querySelector('.value').textContent)
-                        chg = Number(ar[3].querySelector('.value').textContent.split('%')[0])
-                        vo = Number(document.querySelector('.values.svelte-1cwgnqa').textContent)
-                    })
-                    return {
-                        pair, ask, bid, chg, vo
-                    }
-                } catch (error) {
-                    console.log('error' + error)
-                    return {
-                        pair, ask, bid, chg
-                    }
-                }
+    //     document.querySelector('[title="1 Minute"]').click();
+    //     document.querySelector('.drop-view.svelte-kisuhz ').firstChild.className = "";
+    // })
+    await new Promise(async (re) => {
+        setTimeout((e) => {
+            re('hi')
+        }, 5000)
+    })
+
+    while (true) {
+
+        let k = await page.evaluate(async () => {
 
 
-            })
             try {
-                console.log(k)
-                db2({
-                    pair: k.pair, ask: k.ask, bid: k.bid, chg: k.chg, volome: vo
-                }).save()
+                let data = document.querySelectorAll('.tr.svelte-1c4nhxj .item ');
+                let pair, ask, bid, chg, vo;
+                Array.from(data).forEach(async e => {
+                    let ar = e.children;
+                    pair = ar[0].querySelector('.text').textContent
+                    bid = Number(ar[1].querySelector('.value').textContent)
+                    ask = Number(ar[2].querySelector('.value').textContent)
+                    chg = Number(ar[3].querySelector('.value').textContent.split('%')[0])
+                    vo = Number(document.querySelector('.values.svelte-1cwgnqa').textContent)
+                })
+                return {
+                    pair, ask, bid, chg, vo
+                }
             } catch (error) {
-
+                console.log('error' + error)
+                return {
+                    pair, ask, bid, chg
+                }
             }
-            await new Promise(async (re) => {
-                await setTimeout((e) => {
-                    re('hi')
-                }, 100)
-            })
+
+
+        })
+        try {
+            console.log(k)
+            db2({
+                pair: k.pair, ask: k.ask, bid: k.bid, chg: k.chg, volome: vo
+            }).save()
+        } catch (error) {
+
         }
-
-
+        await new Promise(async (re) => {
+            await setTimeout((e) => {
+                re('hi')
+            }, 100)
+        })
     }
+
+
+}
 start()
 console.log('ih')
