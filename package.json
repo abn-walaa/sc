@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mongoose": "^6.7.1",
+    "node-telegram-bot-api": "^0.59.0",
+    "puppeteer": "^17.1.1",
+    "puppeteer-autoscroll-down": "^1.1.1"
+  }
+}
