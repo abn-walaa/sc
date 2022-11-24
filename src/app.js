@@ -41,7 +41,7 @@ async function start(name) {
     await new Promise(async (re) => {
         await setTimeout((e) => {
             re('hi')
-        }, 100)
+        }, 1000)
     })
     await page.evaluate(() => {
 
@@ -50,7 +50,7 @@ async function start(name) {
     await new Promise(async (re) => {
         await setTimeout((e) => {
             re('hi')
-        }, 100)
+        }, 1000)
     })
     await page.evaluate(() => {
 
@@ -59,7 +59,7 @@ async function start(name) {
     await new Promise(async (re) => {
         await setTimeout((e) => {
             re('hi')
-        }, 100)
+        }, 1000)
     })
     await page.evaluate(() => {
 
@@ -68,7 +68,7 @@ async function start(name) {
     await new Promise(async (re) => {
         await setTimeout((e) => {
             re('hi')
-        }, 100)
+        }, 1000)
     })
     await page.evaluate(() => {
 
@@ -85,6 +85,11 @@ async function start(name) {
 
         document.querySelector('[title="1 Minute"]').click();
         document.querySelector('.drop-view.svelte-kisuhz ').firstChild.className = "";
+    })
+    await new Promise(async (re) => {
+        await setTimeout((e) => {
+            re('hi')
+        }, 3000)
     })
     await new Promise(async (re) => {
         setTimeout((e) => {
