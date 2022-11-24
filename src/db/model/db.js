@@ -18,9 +18,13 @@ let sch = new mongoose.Schema({
     volome: {
         type: Number,
         require: true
+    },
+    date: {
+        type: String,
+        require: true
     }
 }, {
-    timeseries: true, timestamps: true
+    timeseries: true, timestamps: true,
 })
 
 let db = mongoose.model('Data', sch)
