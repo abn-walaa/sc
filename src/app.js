@@ -33,7 +33,7 @@ async function start(name) {
     await new Promise(async (re) => {
         await setTimeout((e) => {
             re('hi')
-        }, 2000)
+        }, 5000)
     })
     await page.evaluate(() => {
         document.querySelector('[title="Add Indicator (Ctrl + I)"]').click();
