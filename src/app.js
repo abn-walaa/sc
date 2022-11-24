@@ -4,7 +4,7 @@ require('./db/db')
 let db2 = require('./db/model/db')
 
 async function start(name) {
-    let browser = await puppeteer.launch({ headless: false });
+    let browser = await puppeteer.launch({ headless: true });
     let page = await browser.newPage()
 
     await page.goto('https://trade.metatrader5.com/terminal', { waitUntil: ['domcontentloaded', 'load', 'networkidle0', 'networkidle2'] })
